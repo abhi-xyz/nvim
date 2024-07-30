@@ -4,7 +4,7 @@ return {
 		"hrsh7th/cmp-buffer", -- source for text in buffer
 		"hrsh7th/cmp-cmdline",
 		"hrsh7th/cmp-nvim-lsp",
-		"hrsh7th/cmp-path", -- source for file system paths
+		"hrsh7th/cmp-path",   -- source for file system paths
 		"neovim/nvim-lspconfig",
 		"onsails/lspkind.nvim", -- vs-code like pictograms
 		-- rust
@@ -66,7 +66,7 @@ return {
 				["<Tab>"] = cmp.mapping.select_next_item(),
 				["<S-Tab>"] = cmp.mapping.select_prev_item(),
 				["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
-				["<C-e>"] = cmp.mapping.abort(), -- close completion window
+				["<C-e>"] = cmp.mapping.abort(),    -- close completion window
 				["<CR>"] = cmp.mapping.confirm({ select = false }),
 			}),
 			-- sources for autocompletion

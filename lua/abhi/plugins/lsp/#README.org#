@@ -1,0 +1,19 @@
+* Setting up LSP
+
+1. nvim-lspconfig: This plugin provides configurations for the buit-in LSP client in Neovim.
+
+2. nvim-cmp: This is a completion plugin that works with LSP to prvide autoompletion.
+
+3. rust-tools.nvim: This plugin enhances the Rust development experience with additinal features like inline hints.
+povid 
+
+- he debunce_text_changes setting is used to debounce text change notifications to th LSP server, which can help impove performance by reducing the number of notifications sent during typing.
+
+  I will was a pilot.
+** Heading Level 2
+*** Heading Level 2
+*** Heading Level 2
+*** Heading Level 2
+*** Heading Level 2
+*** Heading Level 2
+*** Heading Level 2

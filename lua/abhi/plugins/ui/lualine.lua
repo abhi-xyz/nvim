@@ -45,11 +45,27 @@ return {
         c = { bg = colors.bg, fg = colors.fg },
       },
       inactive = {
-        a = { bg = colors.inactive_bg, fg = colors.semilightgray, gui = "bold" },
-        b = { bg = colors.inactive_bg, fg = colors.semilightgray },
-        c = { bg = colors.inactive_bg, fg = colors.semilightgray },
+        a = { bg = colors.inactive_bg, fg = colors.fg, gui = "bold" },
+        b = { bg = colors.inactive_bg, fg = colors.fg },
+        c = { bg = colors.inactive_bg, fg = colors.fg },
       },
     }
+
+    -- LSP status function with lightning symbol
+    local function lsp_status()
+      local clients = vim.lsp.get_active_clients({ bufnr = vim.api.nvim_get_current_buf() })
+      if next(clients) == nil then
+        return "⚡ No LSP"
+      end
+      local msg = "󱐋"
+      for _, client in ipairs(clients) do
+        if #msg > 1 then
+          msg = msg .. " "
+        end
+        msg = msg .. client.name
+      end
+      return msg
+    end
 
     -- configure lualine with modified theme
     lualine.setup({
@@ -66,8 +82,10 @@ return {
           { "encoding" },
           { "fileformat" },
           { "filetype" },
+          { lsp_status }, -- Adding LSP status to lualine_x
         },
       },
     })
   end,
 }
+
