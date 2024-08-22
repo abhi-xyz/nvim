@@ -24,7 +24,7 @@ opt.autoindent = true -- copy indent from current line when starting new one
 --  See `:help 'list'`
 --  and `:help 'listchars'`
 opt.list = true
-opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+opt.listchars = { trail = "·", nbsp = "␣" }
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 opt.mouse = "a"

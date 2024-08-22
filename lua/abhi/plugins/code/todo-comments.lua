@@ -4,6 +4,7 @@ return {
 	dependencies = { "nvim-lua/plenary.nvim" },
 	opts = { signs = false },
 	config = function()
+		vim.keymap.set("n", "<leader>z", "<cmd>TodoTelescope<cr>", { desc = "Todo Telescope" })
 		local todo_comments = require("todo-comments")
 
 		-- set keymaps

@@ -49,6 +49,35 @@ return {
             },
         })
 
+
+        lspconfig.templ.setup({
+            on_attach = function(client, bufnr)
+                local opts = { noremap = true, silent = true }
+                vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+                -- Add more key mappings as needed
+            end,
+            settings = {
+                -- Add any server-specific settings here
+            },
+            flags = {
+                debounce_text_changes = 150,
+            },
+        })
+
+        lspconfig.gopls.setup({
+            on_attach = function(client, bufnr)
+                local opts = { noremap = true, silent = true }
+                vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+                -- Add more key mappings as needed
+            end,
+            settings = {
+                -- Add any server-specific settings here
+            },
+            flags = {
+                debounce_text_changes = 150,
+            },
+        })
+
         lspconfig.lua_ls.setup({
             on_attach = function(client, bufnr)
                 local opts = { noremap = true, silent = true }
@@ -66,7 +95,7 @@ return {
 
 
 
-        lspconfig.nil_ls.setup({
+        lspconfig.nixd.setup({
             on_attach = function(client, bufnr)
                 local opts = { noremap = true, silent = true }
                 vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
