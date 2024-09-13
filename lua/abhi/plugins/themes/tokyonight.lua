@@ -15,11 +15,12 @@ return {
 			-- Change the "hint" color to the "orange" color, and make the "error" color bright red
 			on_colors = function(colors)
 				colors.hint = colors.orange
-				colors.error = "#ff0000"
+				colors.error = "#d20f39"
 			end
 		})
 	end
 }
+
 --[[
 
 There are also colorschemes for the different styles.
