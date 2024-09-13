@@ -1,5 +1,10 @@
 return {
     'neovim/nvim-lspconfig',
+    init_options = {
+        userLanguages = {
+            rust = "html",
+        },
+    },
     config = function()
         local lspconfig = require('lspconfig')
 
@@ -10,35 +15,28 @@ return {
                 vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
                 -- Mappings.
                 local opts = { noremap = true, silent = true }
-                vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-                vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-                vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-                vim.api.nvim_buf_set_keymap(bufnr, 'n', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
-                vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wa', '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>',
-                    opts)
-                vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>',
-                    opts)
-                vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>wl',
-                    '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts)
-                vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>D', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-                vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-                vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-                vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>e',
-                    '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
-                vim.api.nvim_buf_set_keymap(bufnr, 'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-                vim.api.nvim_buf_set_keymap(bufnr, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
-                vim.api.nvim_buf_set_keymap(bufnr, 'n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
-                vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
             end,
             settings = {
-                ["rust-analyzer"] = {}
-            }
-        }
+                ["rust-analyzer"] = {
+                    assist = {
+                        importMergeBehavior = "last",
+                        importPrefix = "by_self",
+                    },
+                    cargo = {
+                        allFeatures = true,
+                    },
+                    checkOnSave = {
+                        command = "clippy", -- Use Clippy to catch more issues
+                    },
+                    procMacro = {
+                        enable = true, -- Enable macro expansion
+                    },
+                },
+            } }
 
         lspconfig.pyright.setup({
             on_attach = function(client, bufnr)
                 local opts = { noremap = true, silent = true }
-                vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
                 -- Add more key mappings as needed
             end,
             settings = {
@@ -49,25 +47,10 @@ return {
             },
         })
 
-
-        lspconfig.templ.setup({
-            on_attach = function(client, bufnr)
-                local opts = { noremap = true, silent = true }
-                vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-                -- Add more key mappings as needed
-            end,
-            settings = {
-                -- Add any server-specific settings here
-            },
-            flags = {
-                debounce_text_changes = 150,
-            },
-        })
 
         lspconfig.gopls.setup({
             on_attach = function(client, bufnr)
                 local opts = { noremap = true, silent = true }
-                vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
                 -- Add more key mappings as needed
             end,
             settings = {
@@ -81,7 +64,6 @@ return {
         lspconfig.lua_ls.setup({
             on_attach = function(client, bufnr)
                 local opts = { noremap = true, silent = true }
-                vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
                 -- Add more key mappings as needed
             end,
             settings = {
@@ -98,7 +80,6 @@ return {
         lspconfig.nixd.setup({
             on_attach = function(client, bufnr)
                 local opts = { noremap = true, silent = true }
-                vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
                 -- Add more key mappings as needed
             end,
             settings = {

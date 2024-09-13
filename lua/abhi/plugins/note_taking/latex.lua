@@ -10,7 +10,7 @@ return {
 		}
 	end,
 	config = function()
-		vim.keymap.set("n", "<leader>2", "<cmd>VimtexCompile<cr>", { desc = "Compile LaTeX document" })
+		vim.keymap.set("n", "<leader>lc", "<cmd>VimtexCompile<cr>", { desc = "Compile LaTeX document" })
 		vim.keymap.set("n", "<leader>lv", "<cmd>VimtexView<cr>", { desc = "View compiled PDF" })
 
 

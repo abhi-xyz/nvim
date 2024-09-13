@@ -24,3 +24,5 @@ vim.api.nvim_create_autocmd({ "BufEnter", "BufWinEnter" }, {
 })
 -- https://vi.stackexchange.com/questions/43893/how-do-you-toggle-inlay-hints
 -- lsp.inlay_hint.enable(0, not lsp.inlay_hint.is_enabled())
+--
+

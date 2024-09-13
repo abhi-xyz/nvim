@@ -23,8 +23,8 @@ opt.autoindent = true -- copy indent from current line when starting new one
 -- Sets how neovim will display certain whitespace characters in the editor.
 --  See `:help 'list'`
 --  and `:help 'listchars'`
-opt.list = true
-opt.listchars = { trail = "·", nbsp = "␣" }
+opt.list = false -- true
+-- opt.listchars = { trail = "·", nbsp = "␣" }
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 opt.mouse = "a"
@@ -64,3 +64,13 @@ opt.breakindent = true
 
 -- Save undo history
 -- vim.opt.undofile = true
+--
+
+-- Place this in your init.lua or a dedicated LSP configuration file
+vim.diagnostic.config({
+    virtual_text = {
+        prefix = "  =>", -- Customize the prefix for virtual text (e.g., error/warning symbols)
+    },
+    signs = true, -- Enable/disable diagnostic signs in the gutter
+    update_in_insert = false, -- Don't update diagnostics while in insert mode
+})

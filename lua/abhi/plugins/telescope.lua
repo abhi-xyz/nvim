@@ -70,15 +70,34 @@ return {
 		vim.keymap.set("n", "<leader>f.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
 		vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
 
+		vim.keymap.set("n", "<leader>lq", builtin.quickfix, { desc = "[ ] Lists items in the quickfix list" })
+		vim.keymap.set("n", "<leader>vr", builtin.registers, { desc = "[ ] Lists items in the quickfix list" })
+		vim.keymap.set("n", "<leader>lr", builtin.lsp_references,
+			{ desc = "[ ] Lists LSP references for word under the cursor" })
+		vim.keymap.set("n", "<leader>li", builtin.lsp_implementations,
+			{ desc = "[ ] Goto the implementation of the word under the cursor" })
+		vim.keymap.set("n", "<leader>ld", builtin.lsp_definitions,
+			{ desc = "[ ] Goto the definition of the word under the cursor" })
+		vim.keymap.set("n", "<leader>lt", builtin.lsp_type_definitions,
+			{ desc = "[ ] Goto the definition of the type of the word under the cursor" })
+		vim.keymap.set("n", "<leader>gs", builtin.git_status,
+			{ desc = "[ ] Lists current changes per file with diff preview and add action" })
+
 		-- GPT
 		-- Key mappings for LSP features using Telescope
-		vim.api.nvim_set_keymap('n', '<leader>gd', '<Cmd>Telescope lsp_definitions<CR>', { noremap = true, silent = true })
-		vim.api.nvim_set_keymap('n', '<leader>gr', '<Cmd>Telescope lsp_references<CR>', { noremap = true, silent = true })
+		vim.api.nvim_set_keymap('n', '<leader>gd', '<Cmd>Telescope lsp_definitions<CR>',
+			{ noremap = true, silent = true })
+		vim.api.nvim_set_keymap('n', '<leader>gr', '<Cmd>Telescope lsp_references<CR>',
+			{ noremap = true, silent = true })
 		vim.api.nvim_set_keymap('n', '<leader>gi', '<Cmd>Telescope lsp_implementations<CR>',
 			{ noremap = true, silent = true })
 		vim.api.nvim_set_keymap('n', '<leader>gl', '<Cmd>Telescope lsp_type_definitions<CR>',
 			{ noremap = true, silent = true })
-		vim.api.nvim_set_keymap('n', '<leader>e', '<Cmd>Telescope diagnostics<CR>', { noremap = true, silent = true })
+		vim.api.nvim_set_keymap('n', '<leader>e', '<Cmd>Telescope diagnostics<CR>',
+			{ noremap = true, silent = true })
+
+		vim.api.nvim_set_keymap('n', '<leader>lh', '<Cmd>lua vim.lsp.buf.hover()<CR>',
+			{ noremap = true, silent = true })
 
 		--
 
@@ -163,4 +182,5 @@ return {
     keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
     keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
   end,
-]] --
+]]
+   --
