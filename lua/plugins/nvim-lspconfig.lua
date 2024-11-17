@@ -60,18 +60,18 @@ return {
         -- Add more key mappings as needed
       end,
       filetypes = {
-        "aspnetcorerazor", "astro", "astro-markdown",
-        "blade", "clojure", "django-html", "htmldjango",
-        "edge", "eelixir", "elixir", "ejs", "erb",
-        "eruby", "gohtml", "gohtmltmpl", "haml",
-        "handlebars", "hbs", "html", "htmlangular",
-        "html-eex", "heex", "jade", "leaf", "liquid",
-        "markdown", "mdx", "mustache", "njk", "nunjucks",
-        "php", "razor", "slim", "twig", "css", "less",
-        "postcss", "sass", "scss", "stylus", "sugarss",
-        "javascript", "javascriptreact",
-        "reason", "rescript", "typescript",
-        "typescriptreact", "vue", "svelte", "templ"
+        "gohtml",
+        "gohtmltmpl",
+        "html",
+        "php",
+        "css",
+        "postcss",
+        "sass",
+        "scss",
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact"
       },
       settings = {
         tailwindCSS = {
