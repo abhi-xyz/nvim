@@ -34,6 +34,13 @@ return {
     --   }
     -- }
 
+    lspconfig.typst_lsp.setup {
+      on_attach = on_attach,
+      offset_encoding = "utf-8",
+      root_dir = lspconfig.util.root_pattern("*.typ"),
+      single_file_support = true
+    }
+
     lspconfig.denols.setup({
       root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
       on_attach = function(client, bufnr)
