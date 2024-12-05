@@ -28,6 +28,7 @@ return {
 
 
     vim.keymap.set("n", "<leader>ha", function() harpoon:list():add() end, { desc = "Open harpoon window" })
+    vim.keymap.set("n", "<leader>hh", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Open harpoon window" })
     vim.keymap.set("n", "<leader>ht", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Open harpoon window" })
     vim.keymap.set("n", "<leader>h1", function() harpoon:list():select(1) end, { desc = "Open harpoon window" })
     vim.keymap.set("n", "<leader>h2", function() harpoon:list():select(2) end, { desc = "Open harpoon window" })
